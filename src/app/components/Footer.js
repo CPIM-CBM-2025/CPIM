@@ -28,14 +28,11 @@ export default function Footer() {
                 fontFamily: "serif",
               }}
             >
-              Communist Party of India (Marxist)
+              இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்)
             </h4>
             <p style={{ lineHeight: "1.8", textAlign: "justify" }}>
-              The Communist Party of India (Marxist) stands for equality, 
-              social justice, and workers' rights. We strive to build a 
-              society based on the principles of socialism, secularism, 
-              and democracy. Together, we move towards a nation of dignity, 
-              progress, and peace.
+              இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) சமூகநீதிக்காக, சமத்துவத்திற்காக மற்றும் தொழிலாளர் உரிமைகளுக்காக போராடுகிறது.
+              சோசலிசம், மதச்சார்பற்ற தன்மை மற்றும் ஜனநாயகத்தின் கோட்பாடுகளை அடிப்படையாகக் கொண்ட சமுதாயத்தை உருவாக்குவது எங்கள் நோக்கம்.
             </p>
           </div>
 
@@ -50,27 +47,34 @@ export default function Footer() {
                 fontFamily: "serif",
               }}
             >
-              Quick Links
+              விரைவுச் சுட்டிகள்
             </h5>
             <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-              {["Home", "About", "Leaders", "News", "Events", "Contact"].map(
-                (link, index) => (
-                  <li key={index} style={{ marginBottom: "10px" }}>
-                    <a
-                      href={`/${link.toLowerCase()}`}
-                      style={{
-                        color: "white",
-                        textDecoration: "none",
-                        transition: "color 0.3s",
-                      }}
-                      onMouseOver={(e) => (e.target.style.color = "#FFD700")}
-                      onMouseOut={(e) => (e.target.style.color = "white")}
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: "செய்திகள்", link: "/news" },
+                { name: "நீர்மானங்கள்", link: "/resolutions" },
+                { name: "ஆவணங்கள்", link: "/documents" },
+                { name: "கட்சித் திட்டம்", link: "/katchithittam" },
+                { name: "அமைப்பு சட்டம்", link: "/amaippusattam" },
+                { name: "தொடர்பு", link: "/contact" },
+                { name: "அன்றாட போராட்டம்", link: "/struggles" },
+                { name: "வரலாறு", link: "/history" },
+              ].map((item, index) => (
+                <li key={index} style={{ marginBottom: "10px" }}>
+                  <a
+                    href={item.link}
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                      transition: "color 0.3s",
+                    }}
+                    onMouseOver={(e) => (e.target.style.color = "#FFD700")}
+                    onMouseOut={(e) => (e.target.style.color = "white")}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -85,19 +89,19 @@ export default function Footer() {
                 fontFamily: "serif",
               }}
             >
-              Contact Us
+              தொடர்புக்கு
             </h5>
             <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <MapPin size={18} color="#FFD700" />  
-              A.K. Gopalan Bhawan, New Delhi, India
+              27, வைத்யியராமன் தெரு, தியாகராயர் நகரம், சென்னை – 600 017.
             </p>
             <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Phone size={18} color="#FFD700" />  
-              +91 11 2338 5276
+              044 24341205, 24326800, 24326900
             </p>
             <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Mail size={18} color="#FFD700" />  
-              info@cpim.org
+              cpimtn2009@gmail.com
             </p>
 
             {/* 🔻 Social Media Icons */}
@@ -121,10 +125,7 @@ export default function Footer() {
         {/* 🔻 Footer Bottom */}
         <div className="text-center" style={{ marginTop: "15px" }}>
           <p style={{ fontSize: "0.9rem", color: "#ccc" }}>
-            © {new Date().getFullYear()} Communist Party of India (Marxist). All Rights Reserved.
-          </p>
-          <p style={{ fontSize: "0.9rem", color: "#aaa" }}>
-            Designed & Developed by <span style={{ color: "#FFD700" }}>Varshu</span> ❤️
+            © {new Date().getFullYear()} இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டுள்ளன.
           </p>
         </div>
       </div>

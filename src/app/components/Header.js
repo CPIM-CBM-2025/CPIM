@@ -66,13 +66,13 @@ export default function TamilHeader() {
                     }}
                 >
                     <Link href="/news" style={navLinkStyle}>செய்திகள்</Link>
-                    <Link href="/resolutions" style={navLinkStyle}>தீர்மானங்கள்</Link>
-                    <Link href="/leaders" style={navLinkStyle}>ஆவணங்கள்</Link>
+                    <Link href="/resolution" style={navLinkStyle}>தீர்மானங்கள்</Link>
+                    <Link href="/document" style={navLinkStyle}>ஆவணங்கள்</Link>
                     <Link href="/plan" style={navLinkStyle}>கட்சி திட்டம்</Link>
-                    <Link href="/rules" style={navLinkStyle}>அமைப்பு சட்டம்</Link>
-                    <Link href="/join" style={navLinkStyle}>தொடர்பு</Link>
-                    <Link href="/congress" style={navLinkStyle}>அன்றாட போராட்டம்</Link>
-                    <Link href="/congress" style={navLinkStyle}>வரலாறு</Link>
+                    <Link href="/rule" style={navLinkStyle}>அமைப்பு சட்டம்</Link>
+                    <Link href="/contact" style={navLinkStyle}>தொடர்பு</Link>
+                    <Link href="/protest" style={navLinkStyle}>அன்றாட போராட்டம்</Link>
+                    <Link href="/history" style={navLinkStyle}>வரலாறு</Link>
                 </nav>
 
                 {/* 🔻 Search Icon */}
@@ -107,13 +107,14 @@ export default function TamilHeader() {
                     }}
                     className="d-md-none"
                 >
-                    <Link href="/news" style={navLinkStyle}>செய்திகள்</Link>
+                    <Link href="/pages/news" style={navLinkStyle}>செய்திகள்</Link>
                     <Link href="/resolutions" style={navLinkStyle}>தீர்மானங்கள்</Link>
-                    <Link href="/leaders" style={navLinkStyle}>ஆவணங்கள்</Link>
+                    <Link href="/documents" style={navLinkStyle}>ஆவணங்கள்</Link>
                     <Link href="/plan" style={navLinkStyle}>கட்சி திட்டம்</Link>
                     <Link href="/rules" style={navLinkStyle}>அமைப்பு சட்டம்</Link>
-                    <Link href="/join" style={navLinkStyle}>தொடர்பு</Link>
-                    <Link href="/congress" style={navLinkStyle}>24TH PARTY CONGRESS</Link>
+                    <Link href="/contact" style={navLinkStyle}>தொடர்பு</Link>
+                    <Link href="/protest" style={navLinkStyle}>அன்றாட போராட்டம்</Link>
+                    <Link href="/history" style={navLinkStyle}>வரலாறு</Link>
                 </div>
             )}
         </header>
