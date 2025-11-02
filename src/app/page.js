@@ -450,7 +450,7 @@ export default function Home() {
         <section
           id="contact"
           style={{
-            background: "radial-gradient(circle at top, #eecbcbff, #dbb9b9ff)",
+            background: "radial-gradient(circle at top, #350a0aff, #dbb9b9ff)",
             color: "white",
             padding: "4rem 2rem",
             textAlign: "center",

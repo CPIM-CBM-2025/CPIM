@@ -5,13 +5,13 @@ import { Menu, X, Search } from "lucide-react";
 
 export default function TamilHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navLinkStyle = {
-  color: "white",
-  textDecoration: "none",
-  transition: "color 0.3s ease",
-  fontWeight: 500,
-};
 
+  const navLinkStyle = {
+    color: "white",
+    textDecoration: "none",
+    transition: "color 0.3s ease",
+    fontWeight: 500,
+  };
 
   return (
     <header
@@ -25,35 +25,44 @@ export default function TamilHeader() {
         width: "100%",
       }}
     >
-      {/* 🔸 Title Section */}
-      <div
+      {/* 🔸 Clickable Title Section (Full Area Clickable) */}
+      <Link
+        href="/"
         style={{
-          textAlign: "center",
-          padding: "1rem 0 0.5rem 0",
-          fontFamily: "serif",
+          textDecoration: "none",
+          color: "inherit",
         }}
       >
-        <h1
+        <div
           style={{
-            fontSize: "clamp(1.3rem, 4vw, 2rem)",
-            fontWeight: "bold",
-            color: "#ffffff",
-            margin: 0,
-            lineHeight: 1.2,
+            textAlign: "center",
+            padding: "1rem 0 0.5rem 0",
+            fontFamily: "serif",
+            cursor: "pointer",
           }}
         >
-          இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்)
-        </h1>
-        <p
-          style={{
-            fontSize: "clamp(0.75rem, 2vw, 1rem)",
-            color: "#e5e5e5",
-            margin: 0,
-          }}
-        >
-          கம்பம் நகர் ஏரியா குழு
-        </p>
-      </div>
+          <h1
+            style={{
+              fontSize: "clamp(1.3rem, 4vw, 2rem)",
+              fontWeight: "bold",
+              color: "#ffffff",
+              margin: 0,
+              lineHeight: 1.2,
+            }}
+          >
+            இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்)
+          </h1>
+          <p
+            style={{
+              fontSize: "clamp(0.75rem, 2vw, 1rem)",
+              color: "#e5e5e5",
+              margin: 0,
+            }}
+          >
+            கம்பம் நகர் ஏரியா குழு
+          </p>
+        </div>
+      </Link>
 
       {/* 🔸 Navigation Bar */}
       <div
@@ -130,4 +139,3 @@ export default function TamilHeader() {
     </header>
   );
 }
-
