@@ -1,8 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function KatchiThittamPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const introList = [
     "அறிமுகம்",
     "நற்கால உலகில் சோசலிசம்",
@@ -37,7 +47,7 @@ export default function KatchiThittamPage() {
         width: "100%",
         minHeight: "100vh",
         backgroundColor: "#faf6f2",
-        padding: "4rem 2rem",
+        padding: isMobile ? "2rem 1rem" : "4rem 2rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -52,14 +62,14 @@ export default function KatchiThittamPage() {
         transition={{ duration: 1 }}
         style={{
           backgroundColor: "#fff",
-          padding: "3rem",
+          padding: isMobile ? "2rem 1rem" : "3rem",
           borderRadius: "12px",
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
           maxWidth: "950px",
           width: "100%",
           textAlign: "center",
           marginBottom: "2rem",
-          minHeight: "100vh",
+          minHeight: isMobile ? "auto" : "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -67,7 +77,7 @@ export default function KatchiThittamPage() {
       >
         <h1
           style={{
-            fontSize: "2rem",
+            fontSize: isMobile ? "1.6rem" : "2rem",
             fontWeight: "700",
             color: "#b22222",
             marginBottom: "1.5rem",
@@ -78,10 +88,11 @@ export default function KatchiThittamPage() {
 
         <p
           style={{
-            fontSize: "1.2rem",
-            lineHeight: "2",
+            fontSize: isMobile ? "1rem" : "1.2rem",
+            lineHeight: "1.8",
             color: "#333",
             marginBottom: "2rem",
+            textAlign: "justify",
           }}
         >
           1964-ஆம் ஆண்டு அக்டோபர் 31 முதல் நவம்பர் 7 வரை கல்கத்தாவில் நடைபெற்ற
@@ -98,13 +109,14 @@ export default function KatchiThittamPage() {
             style={{
               backgroundColor: "#d32f2f",
               color: "white",
-              padding: "0.9rem 2rem",
+              padding: isMobile ? "0.7rem 1.5rem" : "0.9rem 2rem",
               borderRadius: "30px",
-              fontSize: "1rem",
+              fontSize: isMobile ? "0.9rem" : "1rem",
               fontWeight: "600",
               textDecoration: "none",
               boxShadow: "0 3px 8px rgba(0,0,0,0.2)",
               transition: "background 0.3s",
+              display: "inline-block",
             }}
             onMouseEnter={(e) => (e.target.style.backgroundColor = "#a31d1d")}
             onMouseLeave={(e) => (e.target.style.backgroundColor = "#d32f2f")}
@@ -118,15 +130,15 @@ export default function KatchiThittamPage() {
           style={{
             listStyle: "none",
             padding: 0,
-            fontSize: "1.1rem",
-            textAlign: "left",
-            display: "inline-block",
+            fontSize: isMobile ? "1rem" : "1.1rem",
+            textAlign: isMobile ? "center" : "left",
             color: "#333",
             margin: "0 auto",
+            lineHeight: "1.8",
           }}
         >
           {introList.map((item, i) => (
-            <li key={i} style={{ marginBottom: "0.8rem" }}>
+            <li key={i} style={{ marginBottom: "0.6rem" }}>
               {i + 1}. {item}
             </li>
           ))}
@@ -140,15 +152,15 @@ export default function KatchiThittamPage() {
         transition={{ duration: 1 }}
         style={{
           backgroundColor: "#fff",
-          padding: "3rem",
+          padding: isMobile ? "2rem 1.2rem" : "3rem",
           borderRadius: "8px",
           boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           maxWidth: "900px",
           width: "100%",
           textAlign: "justify",
-          lineHeight: "2",
+          lineHeight: "1.9",
           color: "#1c1c1c",
-          minHeight: "100vh", // ✅ makes every page section same height
+          minHeight: isMobile ? "auto" : "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -163,7 +175,7 @@ export default function KatchiThittamPage() {
             whileInView="visible"
             viewport={{ once: false }}
             style={{
-              fontSize: "1.1rem",
+              fontSize: isMobile ? "1rem" : "1.1rem",
               marginBottom: "1.5rem",
               transformOrigin: "top",
               perspective: "1000px",

@@ -33,15 +33,6 @@ export default function ResolutionPage() {
 நீர் மேலாண்மை மற்றும் பாசன திட்டங்கள் உடனடியாக நடைமுறையிலாக்கப்பட வேண்டும் என கட்சி மாவட்டச் செயலாளர் வலியுறுத்தினார். 
 "விவசாயம் வாழ்வாதாரம் அல்ல, வாழ்வின் அடிப்படை உரிமை" — இதனை காக்க கட்சி தொடர்ந்து செயல்படும் என உறுதியளித்தார்.`,
     },
-    {
-      id: 4,
-      title:
-        "கம்பம் பகுதியில் விவசாயிகளுக்கான நீர் மேலாண்மை மற்றும் உரிமை பாதுகாப்பு திட்டம்: கட்சி வலியுறுத்தல்!",
-      image: "/Image4.jpg",
-      content: `கம்பம் பகுதி விவசாயிகளின் நீர் பற்றாக்குறை பிரச்சனைக்காக மார்க்சிஸ்ட் கம்யூனிஸ்ட் கட்சி தொடர்ச்சியான நடவடிக்கை எடுத்து வருகிறது. 
-நீர் மேலாண்மை மற்றும் பாசன திட்டங்கள் உடனடியாக நடைமுறையிலாக்கப்பட வேண்டும் என கட்சி மாவட்டச் செயலாளர் வலியுறுத்தினார். 
-"விவசாயம் வாழ்வாதாரம் அல்ல, வாழ்வின் அடிப்படை உரிமை" — இதனை காக்க கட்சி தொடர்ந்து செயல்படும் என உறுதியளித்தார்.`,
-    },
   ];
 
   return (
@@ -49,28 +40,41 @@ export default function ResolutionPage() {
       style={{
         backgroundColor: "#f8f9fa",
         minHeight: "100vh",
-        padding: "4rem 0",
+        padding: "3rem 1rem",
       }}
     >
       <div className="container">
+        {/* 🟥 Title Section */}
         <div className="text-center mb-5">
           <h1
             className="fw-bold"
-            style={{ color: "#8B0000", fontSize: "2.5rem" }}
+            style={{
+              color: "#8B0000",
+              fontSize: "2.3rem",
+              lineHeight: "1.4",
+            }}
           >
             சமீபத்திய தீர்மானங்கள்
           </h1>
-          <p style={{ color: "#555", fontSize: "1.1rem" }}>
+          <p
+            style={{
+              color: "#555",
+              fontSize: "1.1rem",
+              lineHeight: "1.6",
+              marginTop: "0.5rem",
+            }}
+          >
             மார்க்சிஸ்ட் கம்யூனிஸ்ட் கட்சியின் முக்கிய தீர்மானங்கள் மற்றும்
             அறிக்கைகள்
           </p>
         </div>
 
+        {/* 📰 Resolution Cards */}
         <div className="row g-4">
           {resolutions.map((item) => (
-            <div key={item.id} className="col-md-6">
+            <div key={item.id} className="col-lg-6 col-md-6 col-sm-12">
               <div
-                className="card border-0 shadow-lg h-80"
+                className="card border-0 shadow-lg h-100"
                 style={{
                   borderRadius: "15px",
                   overflow: "hidden",
@@ -88,42 +92,51 @@ export default function ResolutionPage() {
                     "0 4px 10px rgba(0,0,0,0.1)";
                 }}
               >
-                {/* 🔴 Red Banner Heading */}
+                {/* 🔴 Banner Title */}
                 <div
                   style={{
                     background:
                       "linear-gradient(180deg, #b30000 0%, #8B0000 100%)",
                     color: "white",
-                    padding: "1.0rem",
+                    padding: "1rem",
                     fontWeight: "700",
-                    fontSize: "1.2rem",
+                    fontSize: "1.1rem",
                     textAlign: "center",
-                    lineHeight: "1.6",
+                    lineHeight: "1.5",
                     borderBottom: "4px solid #660000",
+                    wordWrap: "break-word",
                   }}
                 >
                   {item.title}
                 </div>
 
                 {/* 🖼️ Image */}
-                <div style={{ position: "relative", height: "250px" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    height: "230px",
+                  }}
+                >
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    style={{ objectFit: "cover", filter: "brightness(0.9)" }}
+                    style={{
+                      objectFit: "cover",
+                      filter: "brightness(0.9)",
+                    }}
                   />
                 </div>
 
                 {/* 📝 Content */}
-                <div className="card-body" style={{ padding: "1.8rem" }}>
+                <div className="card-body" style={{ padding: "1.5rem" }}>
                   <h5
                     style={{
                       color: "#8B0000",
                       fontWeight: "700",
                       marginBottom: "1rem",
-                      lineHeight: "1.6",
-                      fontSize: "1.1rem",
+                      fontSize: "1.05rem",
+                      lineHeight: "1.5rem",
                     }}
                   >
                     {item.title}
@@ -134,6 +147,7 @@ export default function ResolutionPage() {
                       lineHeight: "1.8",
                       fontSize: "1rem",
                       textAlign: "justify",
+                      wordBreak: "break-word",
                     }}
                   >
                     {item.content.substring(0, 120)}...
@@ -161,7 +175,7 @@ export default function ResolutionPage() {
         </div>
       </div>
 
-      {/* 🪧 Modal Section */}
+      {/* 🪧 Modal */}
       {selectedResolution && (
         <div
           className="modal fade show"
@@ -170,11 +184,13 @@ export default function ResolutionPage() {
             backgroundColor: "rgba(0,0,0,0.6)",
             backdropFilter: "blur(5px)",
             animation: "fadeIn 0.5s ease",
+            zIndex: 1050,
           }}
           onClick={() => setSelectedResolution(null)}
         >
           <div
-            className="modal-dialog modal-lg modal-dialog-centered"
+            className="modal-dialog modal-dialog-centered"
+            style={{ maxWidth: "90%", width: "800px" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -185,22 +201,30 @@ export default function ResolutionPage() {
                 boxShadow: "0 0 20px rgba(0,0,0,0.4)",
               }}
             >
+              {/* 🔴 Modal Header */}
               <div
                 style={{
                   background:
                     "linear-gradient(180deg, #b30000 0%, #8B0000 100%)",
                   color: "white",
-                  padding: "1.5rem",
+                  padding: "1.2rem",
                   textAlign: "center",
                   fontWeight: "700",
-                  fontSize: "1.2rem",
-                  lineHeight: "1.6",
+                  fontSize: "1.1rem",
+                  lineHeight: "1.5",
                 }}
               >
                 {selectedResolution.title}
               </div>
 
-              <div style={{ position: "relative", height: "300px" }}>
+              {/* 🖼️ Modal Image */}
+              <div
+                style={{
+                  position: "relative",
+                  height: "250px",
+                  width: "100%",
+                }}
+              >
                 <Image
                   src={selectedResolution.image}
                   alt={selectedResolution.title}
@@ -209,12 +233,13 @@ export default function ResolutionPage() {
                 />
               </div>
 
+              {/* 📜 Modal Content */}
               <div className="p-4">
                 <p
                   style={{
                     color: "#333",
                     lineHeight: "1.9",
-                    fontSize: "1.1rem",
+                    fontSize: "1.05rem",
                     textAlign: "justify",
                   }}
                 >
@@ -240,6 +265,40 @@ export default function ResolutionPage() {
           </div>
         </div>
       )}
+
+      {/* 📱 Responsive styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 1.8rem !important;
+          }
+          p {
+            font-size: 0.95rem !important;
+          }
+          .card-body {
+            padding: 1.2rem !important;
+          }
+          .btn {
+            padding: 8px 20px !important;
+            font-size: 0.9rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 1.6rem !important;
+          }
+          .card-body {
+            padding: 1rem !important;
+          }
+          .modal-content p {
+            font-size: 0.95rem !important;
+          }
+          .modal-dialog {
+            max-width: 95% !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

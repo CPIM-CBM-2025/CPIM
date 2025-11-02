@@ -40,7 +40,7 @@ export default function AmaippuSattamPage() {
         width: "100%",
         minHeight: "100vh",
         backgroundColor: "#faf6f2",
-        padding: "4rem 2rem",
+        padding: "2rem 1rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -55,22 +55,18 @@ export default function AmaippuSattamPage() {
         transition={{ duration: 1 }}
         style={{
           backgroundColor: "#fff",
-          padding: "3rem",
+          padding: "2.5rem 2rem",
           borderRadius: "12px",
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
           maxWidth: "950px",
           width: "100%",
           textAlign: "center",
           marginBottom: "2rem",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
         }}
       >
         <h1
           style={{
-            fontSize: "2rem",
+            fontSize: "clamp(1.5rem, 4vw, 2rem)",
             fontWeight: "700",
             color: "#b22222",
             marginBottom: "1.5rem",
@@ -81,10 +77,11 @@ export default function AmaippuSattamPage() {
 
         <p
           style={{
-            fontSize: "1.2rem",
-            lineHeight: "2",
+            fontSize: "clamp(1rem, 3vw, 1.2rem)",
+            lineHeight: "1.8",
             color: "#333",
             marginBottom: "2rem",
+            textAlign: "justify",
           }}
         >
           இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) அமைப்பின் ஒழுக்கம், பொறுப்புகள்,
@@ -93,16 +90,17 @@ export default function AmaippuSattamPage() {
           கூறப்பட்டுள்ளன.
         </p>
 
-        {/* 🔸 Section List */}
         <ul
           style={{
             listStyle: "none",
             padding: 0,
-            fontSize: "1.1rem",
+            fontSize: "clamp(0.95rem, 3vw, 1.1rem)",
             textAlign: "left",
             display: "inline-block",
             color: "#333",
             margin: "0 auto",
+            width: "100%",
+            maxWidth: "600px",
           }}
         >
           {introList.map((item, i) => (
@@ -120,18 +118,14 @@ export default function AmaippuSattamPage() {
         transition={{ duration: 1 }}
         style={{
           backgroundColor: "#fff",
-          padding: "3rem",
+          padding: "2.5rem 2rem",
           borderRadius: "8px",
           boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           maxWidth: "900px",
           width: "100%",
           textAlign: "justify",
-          lineHeight: "2",
+          lineHeight: "1.8",
           color: "#1c1c1c",
-          minHeight: "100vh", // ✅ keeps all pages same height
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
         }}
       >
         {content.map((para, i) => (
@@ -143,7 +137,7 @@ export default function AmaippuSattamPage() {
             whileInView="visible"
             viewport={{ once: false }}
             style={{
-              fontSize: "1.1rem",
+              fontSize: "clamp(0.95rem, 2.8vw, 1.1rem)",
               marginBottom: "1.5rem",
               transformOrigin: "top",
               perspective: "1000px",
