@@ -32,7 +32,14 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        
+
+        {/* In your <head> or just before </body> */}
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-AO6ZpGpM9u7qHj2b/R4vOTCz8r6TLk3cwlV0Q4hVdP7x0fB6gRl93cR8ocF+9+3Q"
+          crossOrigin="anonymous"
+        ></script>
+
 
         {/* ✅ Bootstrap CSS */}
         <link

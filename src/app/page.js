@@ -3,36 +3,22 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    // ✅ Initialize Bootstrap carousel
+    setIsClient(true); // ensures rendering happens only on client
     if (typeof window !== "undefined" && window.bootstrap) {
       const carousels = document.querySelectorAll(".carousel");
-      carousels.forEach((c) => new window.bootstrap.Carousel(c));
+      carousels.forEach((c) => new window.bootstrap.Carousel(c, { interval: 1000 }));
     }
   }, []);
 
-  // 🔹 Typing effect for hero text
-  const fullText = `  ஒற்றுமை, சமத்துவம், சுதந்திரம் — எங்கள் வழியும் வலிமையும்.
-நாங்கள் கல்வி, தொழிலாளர் உரிமை, விவசாயிகள் நலன் மற்றும் பெண்களின் முன்னேற்றத்துக்காக செயல்படுகிறோம்.
-ஒவ்வொருவருக்கும் சம வாய்ப்பு மற்றும் குரல் கிடைக்கும் சமூகமே எங்கள் இலக்கு.
-நியாயம், நம்பிக்கை, ஒற்றுமை — எங்கள் அடித்தள தூண்கள்.`
-
-  const [displayedText, setDisplayedText] = useState("");
-
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + fullText.charAt(index));
-      index++;
-      if (index >= fullText.length) clearInterval(interval);
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
+  if (!isClient) return null;
 
   return (
     <div
       style={{
-        backgroundColor: "#0F0F0F",
+        backgroundColor: "#f1e5e5ff",
         color: "white",
         position: "relative",
         overflow: "hidden",
@@ -55,7 +41,7 @@ export default function Home() {
         }}
       >
         <Image
-          src="/logo2.jpg"
+          src="/logo.png"
           alt="Communist Party Logo"
           fill
           style={{
@@ -79,132 +65,130 @@ export default function Home() {
             overflow: "hidden",
           }}
         >
-          {/* 🔸 Bootstrap Carousel */}
           <div
             id="carouselExampleControls"
             className="carousel slide"
             data-bs-ride="carousel"
-            data-bs-interval="2000"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 0,
-            }}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}
           >
             <div className="carousel-inner" style={{ height: "100%" }}>
-              <div className="carousel-item active" style={{ height: "130%" }}>
+              {/* Slide 1 */}
+              <div className="carousel-item active" style={{ height: "100%" }}>
                 <Image
                   src="/Image12.jpg"
-                  alt="First slide"
+                  alt="Slide 1"
                   fill
-                  className="d-block w-100"
-                  style={{
-                    objectFit: "cover",
-                    filter: "brightness(0.6)",
-                  }}
+                  style={{ objectFit: "cover", filter: "brightness(0.6)" }}
                   priority
                 />
-              </div>
+                <div
+                  className="carousel-content"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "5%",
+                    transform: "translate(-50%, -50%)",
+                    background: "rgba(0, 0, 0, 0.55)",
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "15px",
+                    padding: "2rem 3rem",
+                    color: "#fff",
+                    textAlign: "center",
+                    maxWidth: "700px",
+                    boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
+                    animation: "slideLeft 1.2s ease-in-out",
+                  }}
+                >
+                  <h2 style={{ fontSize: "2.5rem", color: "#f0f00dff", marginBottom: "1rem" }}>
+                    ஒவ்வொரு சமுதாயத்தின் வரலாறும் வர்க்கப் போராட்டத்தின் வரலாறே </h2>
+                </div> </div>
 
+              ```
+              {/* Slide 2 */}
               <div className="carousel-item" style={{ height: "100%" }}>
                 <Image
                   src="/Image15.jpg"
-                  alt="Second slide"
+                  alt="Slide 2"
                   fill
-                  className="d-block w-100"
-                  style={{
-                    objectFit: "cover",
-                    filter: "brightness(0.6)",
-                  }}
+                  style={{ objectFit: "cover", filter: "brightness(0.6)" }}
                 />
+                <div
+                  className="carousel-content"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "5%",
+                    transform: "translate(-50%, -50%)",
+                    background: "rgba(0, 0, 0, 0.55)",
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "15px",
+                    padding: "2rem 3rem",
+                    color: "#fff",
+                    textAlign: "center",
+                    maxWidth: "700px",
+                    boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
+                    animation: "slideLeft 1.2s ease-in-out",
+                  }}
+                >
+                  <h2 style={{ fontSize: "2.5rem", color: "#f5d310ff", marginBottom: "1rem" }}>
+                    ஒவ்வொரு வர்க்கப் போராட்டமும் இறுதியில் ஒரு அரசியல் போராட்டமே
+                  </h2>
+
+                </div>
               </div>
 
+              {/* Slide 3 */}
               <div className="carousel-item" style={{ height: "100%" }}>
                 <Image
                   src="/Image13.jpg"
-                  alt="Third slide"
+                  alt="Slide 3"
                   fill
-                  className="d-block w-100"
-                  style={{
-                    objectFit: "cover",
-                    filter: "brightness(0.6)",
-                  }}
+                  style={{ objectFit: "cover", filter: "brightness(0.6)" }}
                 />
+                <div
+                  className="carousel-content"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "5%",
+                    transform: "translate(-50%, -50%)",
+                    background: "rgba(0, 0, 0, 0.55)",
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "15px",
+                    padding: "2rem 3rem",
+                    color: "#fff",
+                    textAlign: "center",
+                    maxWidth: "700px",
+                    boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
+                    animation: "slideLeft 1.2s ease-in-out",
+                  }}
+                >
+                  <h3 style={{ fontSize: "2.5rem", color: "#FFD700", marginBottom: "1rem" }}>
+                    புரட்சியை சாத்தியமற்றதாக ஆக்கும் அரசு, அதைவிட மோசமான வன்முறையை அவசியமாக்குகிறது
+                  </h3>
+                </div>
               </div>
             </div>
 
-            {/* 🔹 Prev Button */}
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="prev"
-            >
-              <span
-                className="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
+            {/* Controls */}
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
               <span className="visually-hidden">Previous</span>
             </button>
-
-            {/* 🔹 Next Button */}
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
               <span className="visually-hidden">Next</span>
             </button>
+
           </div>
 
-          {/* 🔸 Hero Text with Typing Effect */}
-          <div
-            style={{
-              position: "relative",
-              zIndex: 2,
-              textAlign: "center",
-              padding: "2rem",
-            }}
-          >
-            <h1
-              style={{
-                fontSize: "4.5rem",
-                fontWeight: "bold",
-                color: "#782525ff",
-                textShadow: "0 0 25px rgba(255,255,255,0.3)",
-              }}
-            ></h1>
-
-            <p
-              style={{
-                fontSize: "1.5rem",
-                marginTop: "1.5rem",
-                color: "#ffe6e6",
-                maxWidth: "900px",
-                margin: "auto",
-                lineHeight: "1.9",
-                textAlign: "justify",
-                textJustify: "inter-word",
-                background: "rgba(0,0,0,0.5)",
-                padding: "1.5rem",
-                borderRadius: "10px",
-                boxShadow: "0 4px 30px rgba(0,0,0,0.6)",
-                backdropFilter: "blur(3px)",
-                whiteSpace: "pre-wrap",
-                transition: "all 0.3s ease-in-out",
-              }}
-            >
-              {displayedText}
-            </p>
-          </div>
+          {/* Animation Styles */}
+          <style jsx>{`  
+            @keyframes slideLeft {  
+              from { transform: translate(-80%, -50%); opacity: 0; }  
+              to { transform: translate(-50%, -50%); opacity: 1; }  
+            }  
+          `}</style>
         </section>
 
         {/* 🔻 About Section */}
@@ -212,14 +196,20 @@ export default function Home() {
           id="about"
           style={{
             padding: "6rem 2rem",
-            background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%)",
+            background: "rgba(237, 217, 217, 0.08)", // 🔹 Transparent layer
             color: "#1C1C1C",
             textAlign: "center",
             position: "relative",
             overflow: "hidden",
+            backdropFilter: "blur(6px)", // 🔹 Frosted-glass effect
+            boxShadow: "0 0 40px rgba(227, 133, 133, 1)",
+            borderRadius: "12px",
+            margin: "3rem auto",
+            maxWidth: "1400px",
+            zIndex: 1,
           }}
         >
-          {/* Decorative background elements */}
+          {/* 🔻 Decorative background elements */}
           <div
             style={{
               position: "absolute",
@@ -227,7 +217,8 @@ export default function Home() {
               right: "-50px",
               width: "300px",
               height: "300px",
-              background: "radial-gradient(circle, rgba(161,0,0,0.1) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(161,0,0,0.08) 0%, transparent 70%)",
               borderRadius: "50%",
               pointerEvents: "none",
             }}
@@ -239,19 +230,20 @@ export default function Home() {
               left: "-80px",
               width: "400px",
               height: "400px",
-              background: "radial-gradient(circle, rgba(161,0,0,0.08) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(248, 227, 227, 0.06) 0%, transparent 70%)",
               borderRadius: "50%",
               pointerEvents: "none",
             }}
           />
 
-          {/* Section Header */}
+          {/* 🔻 Section Header */}
           <div style={{ position: "relative", zIndex: 1 }}>
             <div
               style={{
                 display: "inline-block",
                 padding: "0.5rem 2rem",
-                background: "rgba(161,0,0,0.1)",
+                background: "rgba(189, 28, 28, 0.1)",
                 borderRadius: "30px",
                 marginBottom: "1rem",
               }}
@@ -269,12 +261,13 @@ export default function Home() {
               </h2>
             </div>
 
-            {/* Decorative line */}
+            {/* 🔻 Decorative line */}
             <div
               style={{
                 width: "80px",
                 height: "4px",
-                background: "linear-gradient(to right, transparent, #A10000, transparent)",
+                background:
+                  "linear-gradient(to right, transparent, #A10000, transparent)",
                 margin: "1.5rem auto",
                 borderRadius: "2px",
               }}
@@ -286,22 +279,20 @@ export default function Home() {
                 margin: "2rem auto",
                 lineHeight: "2",
                 fontSize: "1.25rem",
-                color: "#2C2C2C",
+                color: "#300a0aff",
                 fontWeight: "400",
                 padding: "0 1rem",
                 textAlign: "justify",
                 textAlignLast: "center",
               }}
             >
-              மக்களின் இயக்கம் என்பது சமத்துவம், சமூக நீதி மற்றும் ஒற்றுமைக்காக
-              போராடும் ஒரு உறுதியான சக்தி. நாங்கள் கல்வி, தொழிலாளர் உரிமை,
-              விவசாயிகள் நலன் மற்றும் பெண்களின் முன்னேற்றத்தை முக்கிய நோக்காக
-              கொண்டுள்ளோம். எங்கள் இலக்கு — ஒவ்வொரு மனிதனும் தன் குரலை வெளிப்படுத்தும்
-              சமத்துவ சமூகத்தை உருவாக்குவது.
+              இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) என்பது இந்திய தொழிலாளர் வர்க்கத்தின் புரட்சிகர முன்னோடி கட்சியாகும். இதன் குறிக்கோள் சமூகநீதி மற்றும் கம்யூனிசத்தை அடைவதற்காக தொழிலாளர் ஆட்சியை நிறுவுவது ஆகும். கட்சியின் அனைத்து செயல்பாடுகளிலும் மார்க்சிஸம்–லெனினிசம் என்ற தத்துவமும் கோட்பாடுகளும் வழிகாட்டியாகின்றன; அவை மனிதன் மனிதனைச் சுரண்டுவதற்கான முடிவை எட்டுவதற்கும், உழைப்பாளர் மக்களின் முழுமையான விடுதலையையும் அடைவதற்கும் சரியான வழியை காட்டுகின்றன. கட்சி, தொழிலாளர் சர்வதேச ஒற்றுமையின் கொடியை
+              உயரமாக தாங்குகிறது.
+
             </p>
           </div>
 
-          {/* Enhanced Image Grid */}
+          {/* 🔻 Enhanced Image Grid */}
           <div
             style={{
               display: "grid",
@@ -330,15 +321,18 @@ export default function Home() {
                   boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   cursor: "pointer",
-                  background: "#fff",
+                  background: "rgba(255,255,255,0.6)", // 🔹 Light transparency inside cards
+                  backdropFilter: "blur(4px)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-10px)";
-                  e.currentTarget.style.boxShadow = "0 15px 40px rgba(161,0,0,0.25)";
+                  e.currentTarget.style.boxShadow =
+                    "0 15px 40px rgba(161,0,0,0.25)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 30px rgba(0,0,0,0.15)";
                 }}
               >
                 {/* Image with overlay */}
@@ -367,7 +361,8 @@ export default function Home() {
                       left: 0,
                       right: 0,
                       height: "50%",
-                      background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.5), transparent)",
                       pointerEvents: "none",
                     }}
                   />
@@ -379,7 +374,7 @@ export default function Home() {
                       right: "15px",
                       width: "50px",
                       height: "50px",
-                      background: "rgba(255,255,255,0.95)",
+                      background: "rgba(255,255,255,0.9)",
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
@@ -415,67 +410,100 @@ export default function Home() {
         <section
           id="mission"
           style={{
-            padding: "5rem 2rem",
-            background: "linear-gradient(90deg, #A10000, #6E0000, #A10000)",
+            padding: "6rem 2rem",
+            background: "rgba(161, 0, 0, 0.08)", // 🔹 Transparent layer
             color: "white",
             textAlign: "center",
-            boxShadow: "inset 0 0 80px rgba(0,0,0,0.4)",
+            position: "relative",
+            overflow: "hidden",
+            backdropFilter: "blur(6px)", // 🔹 Frosted-glass look
+            borderRadius: "12px",
+            margin: "3rem auto",
+            maxWidth: "1400px",
+            zIndex: 1,
           }}
         >
-          <h2
+          {/* 🔻 Decorative background elements */}
+          <div
             style={{
-              color: "#EDEBD2",
-              marginBottom: "1rem",
-              fontWeight: "bold",
+              position: "absolute",
+              top: "-60px",
+              right: "-80px",
+              width: "300px",
+              height: "300px",
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)",
+              borderRadius: "50%",
+              pointerEvents: "none",
             }}
-          >
-            எங்கள் நோக்கம்
-          </h2>
-          <p
+          />
+          <div
             style={{
-              maxWidth: "850px",
-              margin: "auto",
-              lineHeight: "1.8",
-              fontSize: "1.2rem",
+              position: "absolute",
+              bottom: "-80px",
+              left: "-100px",
+              width: "400px",
+              height: "400px",
+              background:
+                "radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%)",
+              borderRadius: "50%",
+              pointerEvents: "none",
             }}
-          >
-            சமூகத்தின் அடிப்படை நிலைகளிலிருந்து மாற்றம் உருவாக்குவது எங்கள்
-            பணியாகும். கல்வி, வேலை வாய்ப்பு மற்றும் மருத்துவம் — இவை அனைத்தும்
-            மக்களுக்கு உரிமையாக இருக்க வேண்டும் என்பதே எங்கள் நம்பிக்கை. நியாயம்,
-            நம்பிக்கை மற்றும் ஒற்றுமை — இதுவே நாங்கள் நின்று கொண்டிருக்கும் தூண்கள்.
-          </p>
+          />
+
+          {/* 🔻 Section Header */}
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <div
+              style={{
+                display: "inline-block",
+                padding: "0.5rem 2rem",
+                background: "rgba(189, 28, 28, 0.1)",
+                borderRadius: "30px",
+                marginBottom: "1rem",
+              }}
+            >
+              <h2
+                style={{
+                  color: "#A10000",
+                  margin: 0,
+                  fontWeight: "800",
+                  fontSize: "2.5rem",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                எங்கள் நோக்கம்
+              </h2>
+            </div>
+
+            {/* 🔻 Decorative line */}
+            <div
+              style={{
+                width: "80px",
+                height: "4px",
+                background: "linear-gradient(to right, transparent, #FFD700, transparent)",
+                margin: "1.5rem auto",
+                borderRadius: "2px",
+              }}
+            />
+
+            <p
+              style={{
+                maxWidth: "900px",
+                margin: "2rem auto",
+                lineHeight: "2",
+                fontSize: "1.25rem",
+                color: "#300a0aff",
+                fontWeight: "400",
+                padding: "0 1rem",
+                textAlign: "justify",
+                textAlignLast: "center",
+              }}
+            >
+              இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) என்பது இந்தியாவில் உள்ள ஒரு இடதுசாரி அரசியல் கட்சியாகும். இது 1964-ல் இந்திய கம்யூனிஸ்ட் கட்சியிலிருந்து பிரிந்து உருவானது. கேரளத்திலும், மேற்கு வங்கத்திலும், திரிபுராவிலும் பலமான ஆதரவைக் கொண்டுள்ள இந்த கட்சி, சோசலிச சமுதாயத்தை அடைவதை நோக்கமாகக் கொண்டுள்ளது.
+            </p>
+          </div>
         </section>
 
-        {/* 🔻 Contact Section */}
-        <section
-          id="contact"
-          style={{
-            background: "radial-gradient(circle at top, #350a0aff, #dbb9b9ff)",
-            color: "white",
-            padding: "4rem 2rem",
-            textAlign: "center",
-            boxShadow: "inset 0 0 100px rgba(255,215,0,0.05)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#FFD700",
-              marginBottom: "1rem",
-              fontWeight: "bold",
-            }}
-          >
-            தொடர்பு கொள்ள
-          </h2>
-          <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>
-            📞 தொலைபேசி: +91 98765 43210
-          </p>
-          <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>
-            ✉️ மின்னஞ்சல்: contact@makkaliniyakkam.org
-          </p>
-          <p style={{ fontSize: "1.2rem" }}>
-            📍 முகவரி: சென்னை, தமிழ்நாடு – இந்தியா
-          </p>
-        </section>
       </div>
     </div>
   );

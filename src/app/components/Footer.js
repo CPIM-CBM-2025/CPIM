@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -15,27 +16,35 @@ export default function Footer() {
       }}
     >
       <div className="container">
-        <div className="row text-center text-md-start">
+        <div
+          className="row align-items-start text-center text-md-start"
+          style={{
+            display: "flex",
+            alignItems: "stretch",
+            flexWrap: "wrap",
+          }}
+        >
           {/* 🔻 About Section */}
-          <div className="col-12 col-md-4 mb-4">
+          <div className="col-12 col-md-4 mb-4 d-flex flex-column">
             <h4
               style={{
                 fontWeight: "700",
-                borderBottom: "3px solid #FFD700",
+                borderBottom: "2px solid #FFD700",
                 display: "inline-block",
                 paddingBottom: "8px",
                 marginBottom: "20px",
                 fontFamily: "serif",
-                fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
+                fontSize: "clamp(1rem, 2.5vw, 1.1rem)",
               }}
             >
               இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்)
             </h4>
             <p
               style={{
-                lineHeight: "1.8",
+                lineHeight: "2.0",
                 textAlign: "justify",
                 fontSize: "clamp(0.85rem, 2vw, 1rem)",
+                flexGrow: 1,
               }}
             >
               இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) சமூகநீதிக்காக, சமத்துவத்திற்காக மற்றும் தொழிலாளர் உரிமைகளுக்காக போராடுகிறது.
@@ -44,7 +53,7 @@ export default function Footer() {
           </div>
 
           {/* 🔻 Quick Links */}
-          <div className="col-6 col-md-3 mb-4">
+          <div className="col-6 col-md-3 mb-4 d-flex flex-column">
             <h5
               style={{
                 borderBottom: "2px solid #FFD700",
@@ -57,7 +66,15 @@ export default function Footer() {
             >
               விரைவுச் சுட்டிகள்
             </h5>
-            <ul style={{ listStyle: "none", paddingLeft: 0, fontSize: "clamp(0.85rem, 2vw, 1rem)" }}>
+            <ul
+              style={{
+                listStyle: "none",
+                paddingLeft: 0,
+                fontSize: "clamp(0.85rem, 2vw, 1rem)",
+                margin: 0,
+                flexGrow: 1,
+              }}
+            >
               {[
                 { name: "செய்திகள்", link: "/news" },
                 { name: "தீர்மானங்கள்", link: "/resolution" },
@@ -69,7 +86,7 @@ export default function Footer() {
                 { name: "வரலாறு", link: "/history" },
               ].map((item, index) => (
                 <li key={index} style={{ marginBottom: "10px" }}>
-                  <a
+                  <Link
                     href={item.link}
                     style={{
                       color: "white",
@@ -80,14 +97,15 @@ export default function Footer() {
                     onMouseOut={(e) => (e.target.style.color = "white")}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+
           {/* 🔻 Contact Info */}
-          <div className="col-12 col-md-5 mb-4">
+          <div className="col-12 col-md-5 mb-4 d-flex flex-column">
             <h5
               style={{
                 borderBottom: "2px solid #FFD700",
@@ -100,18 +118,23 @@ export default function Footer() {
             >
               தொடர்புக்கு
             </h5>
-            <div style={{ fontSize: "clamp(0.85rem, 2vw, 1rem)" }}>
-              <p style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "center", justifyContentMd: "flex-start" }}>
-                <MapPin size={18} color="#FFD700" />  
-                27, வைத்யியராமன் தெரு, தியாகராயர் நகரம், சென்னை – 600 017.
+            <div
+              style={{
+                fontSize: "clamp(0.85rem, 2vw, 1rem)",
+                flexGrow: 1,
+              }}
+            >
+              <p style={contactLineStyle}>
+                <MapPin size={25} color="#FFD700" />
+                இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்), கம்பம்-625516, தேனி மாவட்டம்
               </p>
-              <p style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "center", justifyContentMd: "flex-start" }}>
-                <Phone size={18} color="#FFD700" />  
-                044 24341205, 24326800, 24326900
+              <p style={contactLineStyle}>
+                <Phone size={20} color="#FFD700" />
+                9789407760
               </p>
-              <p style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "center", justifyContentMd: "flex-start" }}>
-                <Mail size={18} color="#FFD700" />  
-                cpimtn2009@gmail.com
+              <p style={contactLineStyle}>
+                <Mail size={20} color="#FFD700" />
+                cpimcbm@gmail.com
               </p>
             </div>
 
@@ -120,7 +143,7 @@ export default function Footer() {
               style={{
                 marginTop: "20px",
                 display: "flex",
-                justifyContent: "center",
+
                 justifyContentMd: "flex-start",
                 gap: "15px",
                 flexWrap: "wrap",
@@ -153,7 +176,7 @@ export default function Footer() {
   );
 }
 
-// 🎨 Social Icon Styles
+// 🎨 Styles
 const socialIconStyle = {
   color: "white",
   border: "1px solid #FFD700",
@@ -165,4 +188,12 @@ const socialIconStyle = {
   justifyContent: "center",
   transition: "all 0.3s ease",
   textDecoration: "none",
+};
+
+const contactLineStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  justifyContent: "flex-start",
+  lineHeight: "1.8",
 };
