@@ -1,156 +1,108 @@
 "use client";
-import Image from "next/image";
+
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [isClient, setIsClient] = useState(false);
+export default function KatchiThittamPage() {
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // ensures rendering happens only on client
-    if (typeof window !== "undefined" && window.bootstrap) {
-      const carousels = document.querySelectorAll(".carousel");
-      carousels.forEach((c) => new window.bootstrap.Carousel(c, { interval: 4000 }));
-    }
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (!isClient) return null; // prevent SSR mismatch
+  // 🔴 Heading list (1 to 8)
+  const introList = [
+    "அறிமுகம்",
+    "நற்கால உலகில் சோசலிசம்",
+    "சந்ததிரமும் அதற்குப் பின்னரும்",
+    "அயல்துறைத் கொள்கை",
+    "அரசு கட்டமைப்பும் ஜனநாயகமும்",
+    "மக்கள் ஜனநாயகமும் அதன் திட்டமும்",
+    "மக்கள் ஜனநாயக முன்னேற்றத்தின் கட்டுதல்",
+    "கம்யூனிஸ்ட் கட்சியின் கட்டுதல்",
+  ];
+
+  // 🔴 Paragraph list (1.1, 1.2, 1.3 …)
+  const content = [
+    "1.1 இந்திய மக்களின் முற்போக்கு...",
+    "1.2 இருபதாம் நூற்றாண்டின் மிக முக்கிய...",
+    "1.3 பூரண சுதந்திரம் கோரிய அதே வேளையில்...",
+    "1.4 விடுதலைப் போராட்டத்தில் பங்கேற்ற...",
+    "1.5 இந்தியாவில் கம்யூனிசத்தை தடமற்றுப்...",
+    "1.6 ஏகாதிபத்தியத்திற்கெதிராக...",
+    "1.7 இரண்டாம் உலகப் போருக்குப் பிந்தைய...",
+    "1.8 நாடு விடுதலை பெற்ற பின்னரும்...",
+    "1.9 இவ்வாறு கம்யூனிஸ்ட் இயக்கம் துவக்கப்பட்ட...",
+    "1.10 திருத்தல்வாதத்திற்கு எதிராக...",
+    "1.11 புரட்சிகர இயக்கத்தின் இன்றைய...",
+    "2.1 இருபதாம் நூற்றாண்டில் உலகம்...",
+    "2.2 சோசலிச முறையைப் பின்பற்றிய நாடுகள்...",
+    "2.3 புதிய சந்ததிரம் தொடங்கியதும்...",
+    "2.4 உலகளாவிய அர்த்தக்களப் போர்கள்...",
+  ];
 
   return (
-    <section
+    <div
       style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
+        padding: "20px",
+        maxWidth: "900px",
+        margin: "auto",
       }}
     >
-      <div
-        id="carouselExampleControls"
-        className="carousel slide"
-        data-bs-ride="carousel"
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}
-      >
-        <div className="carousel-inner" style={{ height: "100%" }}>
-          {/* Slide 1 */}
-          <div className="carousel-item active" style={{ height: "100%" }}>
-            <Image
-              src="/Image12.jpg"
-              alt="Slide 1"
-              fill
-              style={{ objectFit: "cover", filter: "brightness(0.6)" }}
-              priority
-            />
-            <div
-              className="carousel-content"
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: "5%",
-                transform: "translate(-50%, -50%)",
-                background: "rgba(0, 0, 0, 0.55)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "15px",
-                padding: "2rem 3rem",
-                color: "#fff",
-                textAlign: "center",
-                maxWidth: "700px",
-                boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
-                animation: "slideLeft 1.2s ease-in-out",
-              }}
-            >
-              <h2 style={{ fontSize: "2.5rem", color: "#f0f00dff", marginBottom: "1rem" }}>
-                ஒவ்வொரு சமுதாயத்தின் வரலாறும் வர்க்கப் போராட்டத்தின் வரலாறே </h2>
-             </div> </div>
-
-          ```
-          {/* Slide 2 */}
-          <div className="carousel-item" style={{ height: "100%" }}>
-            <Image
-              src="/Image15.jpg"
-              alt="Slide 2"
-              fill
-              style={{ objectFit: "cover", filter: "brightness(0.6)" }}
-            />
-            <div
-              className="carousel-content"
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: "5%",
-                transform: "translate(-50%, -50%)",
-                background: "rgba(0, 0, 0, 0.55)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "15px",
-                padding: "2rem 3rem",
-                color: "#fff",
-                textAlign: "center",
-                maxWidth: "700px",
-                boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
-                animation: "slideLeft 1.2s ease-in-out",
-              }}
-            >
-              <h2 style={{ fontSize: "2.5rem", color: "#f5d310ff", marginBottom: "1rem" }}>
-                ஒவ்வொரு வர்க்கப் போராட்டமும் இறுதியில் ஒரு அரசியல் போராட்டமே
-              </h2>
-             
-            </div>
-          </div>
-
-          {/* Slide 3 */}
-          <div className="carousel-item" style={{ height: "100%" }}>
-            <Image
-              src="/Image13.jpg"
-              alt="Slide 3"
-              fill
-              style={{ objectFit: "cover", filter: "brightness(0.6)" }}
-            />
-            <div
-              className="carousel-content"
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: "5%",
-                transform: "translate(-50%, -50%)",
-                background: "rgba(0, 0, 0, 0.55)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "15px",
-                padding: "2rem 3rem",
-                color: "#fff",
-                textAlign: "center",
-                maxWidth: "700px",
-                boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
-                animation: "slideLeft 1.2s ease-in-out",
-              }}
-            >
-              <h3 style={{ fontSize: "2.5rem", color: "#FFD700", marginBottom: "1rem" }}>
-                புரட்சியை சாத்தியமற்றதாக ஆக்கும் அரசு, அதைவிட மோசமான வன்முறையை அவசியமாக்குகிறது
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        {/* Controls */}
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-
+      {/* ---------------------------------------------------
+          🔥 HEADING SECTION (1,2,3,4,5,6,7,8)
+         --------------------------------------------------- */}
+      <div style={{ marginBottom: "30px" }}>
+        {introList.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ rotateY: 90, opacity: 0 }}
+            animate={{ rotateY: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.18 }}
+            style={{
+              background: "#8B0000",
+              color: "white",
+              padding: "12px 18px",
+              margin: "12px 0",
+              borderRadius: "6px",
+              fontSize: isMobile ? "1rem" : "1.2rem",
+              fontWeight: "bold",
+              borderLeft: "6px solid #550000",
+            }}
+          >
+            {index + 1}. {item}
+          </motion.div>
+        ))}
       </div>
 
-      {/* Animation Styles */}
-      <style jsx>{`  
-    @keyframes slideLeft {  
-      from { transform: translate(-80%, -50%); opacity: 0; }  
-      to { transform: translate(-50%, -50%); opacity: 1; }  
-    }  
-  `}</style>
-    </section>
+      {/* ---------------------------------------------------
+          🔥 CONTENT SECTION — NO TITLES FOR SUBTOPICS
+         --------------------------------------------------- */}
 
+
+
+      
+
+      {content.map((text, index) => (
+        <motion.p
+          key={index}
+          initial={{ rotateX: 90, opacity: 0 }}
+          animate={{ rotateX: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          style={{
+            fontSize: isMobile ? "0.95rem" : "1.05rem",
+            lineHeight: "1.7",
+            marginBottom: "18px",
+            textAlign: "justify",
+            color: "#222",
+          }}
+        >
+          {text}
+        </motion.p>
+      ))}
+    </div>
   );
 }

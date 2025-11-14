@@ -38,7 +38,7 @@ export default function TamilHeader() {
         {/* Left Logo and Title */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <img
-            src="/logo.png" // your logo file
+            src="/images/logo.png" // your logo file
             alt="Logo"
             style={{ width: "40px", height: "40px" }}
           />

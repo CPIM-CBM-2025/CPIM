@@ -281,7 +281,8 @@ export default function ResolutionPage() {
       )}
 
       {/* 📱 Responsive styles */}
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           h1 {
             font-size: 1.8rem !important;
@@ -312,7 +313,8 @@ export default function ResolutionPage() {
             max-width: 95% !important;
           }
         }
-      `}</style>
+        `
+      }} />
     </div>
   );
 }

@@ -43,3 +43,21 @@ a {
 body {
   font-family: "Noto Serif Tamil", serif;
 }
+.typing-line {
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: block;
+  
+}
+
+@keyframes blinkCursor {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #3d2626;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
