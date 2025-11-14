@@ -156,7 +156,7 @@ export default function KatchiThittamPage() {
         {/* 🔹 PDF Download Button */}
         <div style={{ marginTop: "2rem" }}>
           <a
-            href="/files/katchi-thittam.pdf"
+            href="/images/katchi-thittam.pdf"
             download
             style={{
               backgroundColor: "#a31d1d",

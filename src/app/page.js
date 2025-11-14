@@ -41,7 +41,7 @@ export default function Home() {
         }}
       >
         <Image
-          src="/Images/logo.png"
+          src="/images/logo.png"
           alt="Communist Party Logo"
           fill
           style={{
