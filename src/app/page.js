@@ -41,7 +41,7 @@ export default function Home() {
         }}
       >
         <Image
-          src="/logo.png"
+          src="/Images/logo.png"
           alt="Communist Party Logo"
           fill
           style={{
@@ -75,7 +75,7 @@ export default function Home() {
               {/* Slide 1 */}
               <div className="carousel-item active" style={{ height: "100%" }}>
                 <Image
-                  src="/Image12.jpg"
+                  src="/images/Image12.jpg"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "cover", filter: "brightness(0.6)" }}
@@ -107,7 +107,7 @@ export default function Home() {
               {/* Slide 2 */}
               <div className="carousel-item" style={{ height: "100%" }}>
                 <Image
-                  src="/Image15.jpg"
+                  src="/images/Image15.jpg"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "cover", filter: "brightness(0.6)" }}
@@ -140,7 +140,7 @@ export default function Home() {
               {/* Slide 3 */}
               <div className="carousel-item" style={{ height: "100%" }}>
                 <Image
-                  src="/Image13.jpg"
+                  src="/images/Image13.jpg"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "cover", filter: "brightness(0.6)" }}
@@ -307,10 +307,10 @@ export default function Home() {
             }}
           >
             {[
-              { src: "/background.jpg", caption: "கல்வி விழிப்புணர்வு", icon: "📚" },
-              { src: "/background1.jpg", caption: "விவசாயிகள் நலன்", icon: "🌾" },
-              { src: "/background.jpg", caption: "தொழிலாளர் உரிமை", icon: "⚒️" },
-              { src: "/Image1.jpg", caption: "பெண்கள் முன்னேற்றம்", icon: "✊" },
+              { src: "/images/background.jpg", caption: "கல்வி விழிப்புணர்வு", icon: "📚" },
+              { src: "/images/background1.jpg", caption: "விவசாயிகள் நலன்", icon: "🌾" },
+              { src: "/images/background.jpg", caption: "தொழிலாளர் உரிமை", icon: "⚒️" },
+              { src: "/images/Image1.jpg", caption: "பெண்கள் முன்னேற்றம்", icon: "✊" },
             ].map((item, index) => (
               <div
                 key={index}

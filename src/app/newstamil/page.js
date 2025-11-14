@@ -86,7 +86,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[0]}</p>
               <Image
-                src="/Image55.jpg"
+                src="/images/Image55.jpg"
                 alt="விவசாயிகள் போராட்டம்"
                 width={400}
                 height={200}
@@ -104,7 +104,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[2]}</p>
               <Image
-                src="/Image56.jpg"
+                src="/images/Image56.jpg"
                 alt="தொழிலாளர் நலத்திட்டம்"
                 width={400}
                 height={200}
@@ -122,7 +122,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[3]}</p>
               <Image
-                src="/Image57.jpg"
+                src="/images/Image57.jpg"
                 alt="பெண்கள் முன்னேற்றம்"
                 width={400}
                 height={200}
@@ -145,7 +145,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[4]}</p>
               <Image
-                src="/Image59.jpg"
+                src="/images/Image59.jpg"
                 alt="இலவச புத்தகத் திட்டம்"
                 width={400}
                 height={200}
@@ -162,7 +162,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[5]}</p>
               <Image
-                src="/Image62.jpg"
+                src="/images/Image62.jpg"
                 alt="சுற்றுச்சூழல் விழிப்புணர்வு"
                 width={400}
                 height={200}
@@ -179,7 +179,7 @@ export default function TamilNewspaperPage() {
               </h2>
               <p>{displayedTexts[6]}</p>
               <Image
-                src="/Image63.jpg"
+                src="/images/Image63.jpg"
                 alt="மின் உற்பத்தி"
                 width={400}
                 height={200}

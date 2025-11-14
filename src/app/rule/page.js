@@ -68,7 +68,7 @@ export default function TamilContentPage() {
           textAlign: "left",
         }}
       >
-        பிரகடனப் பிரிவு
+        அமைப்பு சட்டம்
       </motion.h1>
 
       {/* 🔸 Decorative Line */}

@@ -33,63 +33,63 @@ export default function DocumentsPage() {
     {
       name: "தோழர் கே ஆர் லெனின்",
       position: "ஒன்பதாவது மாநாடு ஏரியா செயலாளர்",
-      image: "/Image1.jpg",
+      image: "/images/Image1.jpg",
       achievements: ["விவசாயிகள் போராட்டம் தலைமை", "தொழிலாளர் சங்க அமைப்பு", "கல்வி சீர்திருத்தம்"]
     },
     {
       name: "தோழர் கே ஆர் லெனின்",
       position: "எட்டாவது மாநாடு ஏரியா செயலாளர்",
       experience: "18 ஆண்டுகள்",
-      image: "/Image4.jpg",
+      image: "/images/Image4.jpg",
       achievements: ["பெண்கள் உரிமை போராட்டம்", "சுயதொழில் திட்டம்", "கல்வி உதவித்தொகை"]
     },
     {
       name: " தோழர் ஜி எம் நாகராஜன்",
       position: "ஏழாவது மாநாடு ஏரியா செயலாளர்",
       experience: "12 ஆண்டுகள்",
-      image: "/background1.jpg",
+      image: "/images/background1.jpg",
       achievements: ["வேலைவாய்ப்பு முகாம்", "திறன் மேம்பாட்டு பயிற்சி", "கல்வி கடன் தள்ளுபடி"]
     },
     {
       name: "தோழர் ஜி எம் நாகராஜன்",
       position: "ஆறாவது மாநாடு ஏரியா செயலாளர்",
       experience: "25 ஆண்டுகள்",
-      image: "/Image1.jpg",
+      image: "/images/Image1.jpg",
       achievements: ["விவசாயிகள் போராட்டம் தலைமை", "தொழிலாளர் சங்க அமைப்பு", "கல்வி சீர்திருத்தம்"]
     },
     {
       name: "தோழர் ஜி எம் நாகராஜன்",
       position: "ஐந்தாவது மாநாடு ஏரியா செயலாளர்",
       experience: "18 ஆண்டுகள்",
-      image: "/Image4.jpg",
+      image: "/images/Image4.jpg",
       achievements: ["பெண்கள் உரிமை போராட்டம்", "சுயதொழில் திட்டம்", "கல்வி உதவித்தொகை"]
     },
     {
       name: "தோழர் முருகன்",
       position: "இளைஞர் அமைப்பு தலைவர்",
       experience: "12 ஆண்டுகள்",
-      image: "/background1.jpg",
+      image: "/images/background1.jpg",
       achievements: ["வேலைவாய்ப்பு முகாம்", "திறன் மேம்பாட்டு பயிற்சி", "கல்வி கடன் தள்ளுபடி"]
     },
     {
       name: "தோழர் ராமசாமி",
       position: "மாவட்ட செயலாளர்",
       experience: "25 ஆண்டுகள்",
-      image: "/Image1.jpg",
+      image: "/images/Image1.jpg",
       achievements: ["விவசாயிகள் போராட்டம் தலைமை", "தொழிலாளர் சங்க அமைப்பு", "கல்வி சீர்திருத்தம்"]
     },
     {
       name: "தோழர் கமலா",
       position: "பெண்கள் அமைப்பு தலைவர்",
       experience: "18 ஆண்டுகள்",
-      image: "/Image4.jpg",
+      image: "/images/Image4.jpg",
       achievements: ["பெண்கள் உரிமை போராட்டம்", "சுயதொழில் திட்டம்", "கல்வி உதவித்தொகை"]
     },
     {
       name: "தோழர் முருகன்",
       position: "இளைஞர் அமைப்பு தலைவர்",
       experience: "12 ஆண்டுகள்",
-      image: "/background1.jpg",
+      image: "/images/background1.jpg",
       achievements: ["வேலைவாய்ப்பு முகாம்", "திறன் மேம்பாட்டு பயிற்சி", "கல்வி கடன் தள்ளுபடி"]
     }
   ];

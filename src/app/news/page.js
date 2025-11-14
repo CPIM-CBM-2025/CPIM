@@ -62,7 +62,7 @@ export default function TamilNewspaperPage() {
 
               </p>
               <Image
-                src="/Image55.jpg"
+                src="/images/Image55.jpg"
                 alt="விவசாயிகள் போராட்டம்"
                 width={400}
                 height={200}
