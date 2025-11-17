@@ -90,6 +90,7 @@ export default function TamilHeader() {
           { name: "அமைப்பு சட்டம்", href: "/rule" },
           { name: "போராட்டங்கள்", href: "/protest" },
           { name: "வரலாறு", href: "/history" },
+          { name: "தொடர்பு", href: "/contact"},
         ].map((link, i) => (
           <Link
             key={i}
@@ -133,23 +134,32 @@ export default function TamilHeader() {
             textAlign: "center",
           }}
         >
-          <Link href="/page" style={{ color: "white" }}>
+          <Link href="/" style={{ color: "white" }}>
             முகப்பு
           </Link>
           <Link href="/news" style={{ color: "white" }}>
             செய்திகள்
           </Link>
-          <Link href="/protest" style={{ color: "white" }}>
-            போராட்டங்கள்
+          <Link href="/resolution" style={{ color: "white" }}>
+            தீர்மானங்கள்
           </Link>
           <Link href="/document" style={{ color: "white" }}>
             ஆவணங்கள்
           </Link>
-          <Link href="/history" style={{ color: "white" }}>
-            வரலாறு
+          <Link href="/plan" style={{ color: "white" }}>
+            கட்சி திட்டம்
           </Link>
           <Link href="/rule" style={{ color: "white" }}>
             அமைப்பு சட்டம்
+          </Link>
+          <Link href="/protest" style={{ color: "white" }}>
+            போராட்டங்கள்
+          </Link>
+          <Link href="/history" style={{ color: "white" }}>
+            வரலாறு
+          </Link>
+          <Link href="/contact" style={{ color: "white" }}>
+            தொடர்பு
           </Link>
         </div>
       )}

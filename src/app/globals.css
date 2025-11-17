@@ -40,24 +40,303 @@ a {
     color-scheme: dark;
   }
 }
+
 body {
   font-family: "Noto Serif Tamil", serif;
 }
+
 .typing-line {
   white-space: pre-wrap;
   overflow: hidden;
   display: block;
-  
+
 }
 
 @keyframes blinkCursor {
   0% {
     border-color: transparent;
   }
+
   50% {
     border-color: #3d2626;
   }
+
   100% {
     border-color: transparent;
   }
+}
+
+/* ---------- GLOBAL PAGE BACKGROUND ---------- */
+.page-background {
+  background-color: #f1e5e5ff;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+  box-shadow: inset 0 0 150px rgba(255, 215, 0, 0.05);
+}
+
+/* ---------- FIXED BACKGROUND LOGO ---------- */
+.bg-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  z-index: 0;
+  opacity: 0.08;
+  filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+}
+
+.bg-logo img {
+  object-fit: contain;
+}
+
+/* ---------- HERO SECTION ---------- */
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Important for next/image fill */
+.carousel-item {
+  position: relative !important;
+  width: 100%;
+  height: 100vh;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+/* Darken images */
+.hero-img {
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+/* ---------- CAROUSEL TEXT BOX ---------- */
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* moved to center instead of right */
+  transform: translate(-50%, -50%);
+  /* perfect center */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 2rem 3rem;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  animation: slideRight 1.2s ease-in-out;
+  /* changed animation */
+}
+
+.carousel-content h2,
+.carousel-content h3 {
+  font-size: 2.5rem;
+  line-height: 1.4;
+}
+
+/* ---------- Animation ---------- */
+/* Slide from RIGHT → LEFT */
+@keyframes slideRight {
+  from {
+    transform: translate(80%, -50%);
+    /* start from right */
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%);
+    /* move to center */
+    opacity: 1;
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .carousel-content {
+    max-width: 90%;
+    padding: 1.5rem 2rem;
+  }
+
+  .carousel-content h2,
+  .carousel-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-content {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .carousel-content h2,
+  .carousel-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* ---------- ABOUT SECTION ---------- */
+.section-box {
+  padding: 6rem 2rem;
+  background: rgba(237, 217, 217, 0.08);
+  color: #1c1c1c;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 40px rgba(227, 133, 133, 1);
+  border-radius: 12px;
+  margin: 3rem auto;
+  max-width: 1400px;
+}
+
+/* Background circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.circle-small {
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  right: -50px;
+  background: radial-gradient(circle, rgba(161, 0, 0, 0.08), transparent 70%);
+}
+
+.circle-large {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(248, 227, 227, 0.06), transparent 70%);
+}
+
+.section-title {
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #a10000;
+  margin: 0;
+}
+
+.decor-line {
+  width: 80px;
+  height: 4px;
+  margin: 1.5rem auto;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, #a10000, transparent);
+}
+
+.section-p {
+  max-width: 900px;
+  margin: 2rem auto;
+  line-height: 2;
+  font-size: 1.25rem;
+  color: #300a0a;
+  padding: 0 1rem;
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* ---------- CARD GRID ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+}
+
+.card-item {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(161, 0, 0, 0.25);
+}
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.card-item:hover .card-img {
+  transform: scale(1.1);
+}
+
+.gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.badge-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-caption {
+  padding: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a10000;
+}
+
+/* ---------- MISSION SECTION ---------- */
+.mission-box {
+  padding: 6rem 2rem;
+  background: rgba(161, 0, 0, 0.08);
+  border-radius: 12px;
+  margin: 3rem auto;
+  max-width: 1400px;
+  position: relative;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.mission-line {
+  background: linear-gradient(to right, transparent, #ffd700, transparent);
 }
