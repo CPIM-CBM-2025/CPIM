@@ -91,157 +91,162 @@ export default function ProtestPage() {
   };
 
   return (
-    <section
-      className="container py-5"
-      style={{
-        background: "#f7f9fc",
-        minHeight: "100vh",
-      }}
-    >
-      {/* 🔸 Decorative Line at Top */}
-      <div
+    <div className="page-background">
+      <div className="bg-logo">
+        <Image src="/images/logo.png" alt="logo" fill priority />
+      </div>
+      <section
+        className="container py-5"
         style={{
-          height: "5px",
-          width: "100%",
-          background: "linear-gradient(to right, grey 40%, maroon 60%)",
-          marginBottom: "30px",
-        }}
-      ></div>
-
-      <h2
-        className="text-center mb-3"
-        style={{
-          fontFamily: "serif",
-          fontWeight: "bold",
-          fontSize: "2.5rem",
+          background: "#f7f9fc",
+          minHeight: "100vh",
         }}
       >
-        போராட்டங்கள்
-      </h2>
+        {/* 🔸 Decorative Line at Top */}
+        <div
+          style={{
+            height: "5px",
+            width: "100%",
+            background: "linear-gradient(to right, grey 40%, maroon 60%)",
+            marginBottom: "30px",
+          }}
+        ></div>
 
-      {/* 🔸 Decorative Line Below Title */}
-      <div
-        style={{
-          height: "5px",
-          width: "250px",
-          margin: "0 auto 50px auto",
-          background: "linear-gradient(to right, grey 50%, maroon 50%)",
-          borderRadius: "2px",
-        }}
-      ></div>
+        <h2
+          className="text-center mb-3"
+          style={{
+            fontFamily: "serif",
+            fontWeight: "bold",
+            fontSize: "2.0rem",
+          }}
+        >
+          போராட்டங்கள்
+        </h2>
 
-      <div className="row g-4">
-        {protests.map((protest, index) => (
-          <motion.div
-            key={protest.id}
-            className="col-md-4 d-flex"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.2 }}
-          >
-            <div
-              className="card shadow border-0 flex-fill"
-              style={{
-                borderRadius: "15px",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                minHeight: "520px",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                border: "3px solid maroon", // ✅ Added maroon outline
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-8px)";
-                e.currentTarget.style.boxShadow =
-                  "0 10px 20px rgba(255, 255, 255, 1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 5px 10px rgba(0,0,0,0.1)";
-              }}
+        {/* 🔸 Decorative Line Below Title */}
+        <div
+          style={{
+            height: "5px",
+            width: "250px",
+            margin: "0 auto 50px auto",
+            background: "linear-gradient(to right, grey 50%, maroon 50%)",
+            borderRadius: "2px",
+          }}
+        ></div>
+
+        <div className="row g-4">
+          {protests.map((protest, index) => (
+            <motion.div
+              key={protest.id}
+              className="col-md-4 d-flex"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.2 }}
             >
-              {/* 🔸 Image */}
-              <div style={{ position: "relative", height: "500px" }}>
-                <Image
-                  src={protest.image}
-                  alt={protest.title}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    filter: "brightness(0.9)",
-                  }}
-                />
-              </div>
-
-              {/* 🔸 Content */}
               <div
-                className="card-body text-center d-flex flex-column justify-content-between"
+                className="card shadow border-0 flex-fill"
                 style={{
-                  flexGrow: 1,
-                  padding: "20px",
+                  borderRadius: "15px",
                   overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  minHeight: "520px",
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                  border: "3px solid maroon", // ✅ Added maroon outline
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 20px rgba(255, 255, 255, 1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 5px 10px rgba(0,0,0,0.1)";
                 }}
               >
-                <div>
-                  <h5 className="fw-bold">{protest.title}</h5>
-                  <p className="text-muted mb-1">📅 {protest.date}</p>
-                  <p className="text-muted mb-2">📍 {protest.location}</p>
-                  <p style={{ minHeight: "60px" }}>{protest.description}</p>
+                {/* 🔸 Image */}
+                <div style={{ position: "relative", height: "500px" }}>
+                  <Image
+                    src={protest.image}
+                    alt={protest.title}
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      filter: "brightness(0.9)",
+                    }}
+                  />
                 </div>
 
-                {/* 🔸 Button */}
-                <button
-                  onClick={() => toggleExpand(protest.id)}
-                  className="btn btn-danger mt-2"
+                {/* 🔸 Content */}
+                <div
+                  className="card-body text-center d-flex flex-column justify-content-between"
                   style={{
-                    borderRadius: "20px",
-                    padding: "8px 20px",
-                    fontWeight: "bold",
+                    flexGrow: 1,
+                    padding: "20px",
+                    overflow: "hidden",
                   }}
                 >
-                  {expandedId === protest.id ? "மூடு ↑" : "மேலும் பார்க்க ↓"}
-                </button>
+                  <div>
+                    <h5 className="fw-bold">{protest.title}</h5>
+                    <p className="text-muted mb-1">📅 {protest.date}</p>
+                    <p className="text-muted mb-2">📍 {protest.location}</p>
+                    <p style={{ minHeight: "60px" }}>{protest.description}</p>
+                  </div>
 
-                {/* 🔸 Expand Section */}
-                <AnimatePresence>
-                  {expandedId === protest.id && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="mt-3"
-                      style={{
-                        background: "#fff5f5",
-                        borderRadius: "10px",
-                        padding: "10px",
-                        textAlign: "justify",
-                        maxHeight: "120px",
-                        overflowY: "auto",
-                      }}
-                    >
-                      <p>{protest.details}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  {/* 🔸 Button */}
+                  <button
+                    onClick={() => toggleExpand(protest.id)}
+                    className="btn btn-danger mt-2"
+                    style={{
+                      borderRadius: "20px",
+                      padding: "8px 20px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {expandedId === protest.id ? "மூடு ↑" : "மேலும் பார்க்க ↓"}
+                  </button>
+
+                  {/* 🔸 Expand Section */}
+                  <AnimatePresence>
+                    {expandedId === protest.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="mt-3"
+                        style={{
+                          background: "#fff5f5",
+                          borderRadius: "10px",
+                          padding: "10px",
+                          textAlign: "justify",
+                          maxHeight: "120px",
+                          overflowY: "auto",
+                        }}
+                      >
+                        <p>{protest.details}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
 
 
 
-      {/* 🔸 Bottom Decorative Line */}
-      <div
-        style={{
-          height: "5px",
-          width: "100%",
-          background: "linear-gradient(to right, grey 40%, maroon 60%)",
-          marginTop: "60px",
-        }}
-      ></div>
-    </section>
+        {/* 🔸 Bottom Decorative Line */}
+        <div
+          style={{
+            height: "5px",
+            width: "100%",
+            background: "linear-gradient(to right, grey 40%, maroon 60%)",
+            marginTop: "60px",
+          }}
+        ></div>
+      </section>
+    </div>
   );
 }

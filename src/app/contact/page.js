@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -50,6 +51,10 @@ export default function ContactPage() {
   ];
 
   return (
+     <div className="page-background">
+              <div className="bg-logo">
+                <Image src="/images/logo.png" alt="logo" fill priority />
+              </div>
     <div style={{ backgroundColor: "#f8f9fa", minHeight: "100vh" }}>
       {/* 🔻 Top Banner */}
       <div
@@ -326,6 +331,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -51,6 +51,10 @@ export default function ResolutionPage() {
   ];
 
   return (
+     <div className="page-background">
+          <div className="bg-logo">
+            <Image src="/images/logo.png" alt="logo" fill priority />
+          </div>
     <div
       style={{
         backgroundColor: "#f8f9fa",
@@ -315,6 +319,7 @@ export default function ResolutionPage() {
         }
         `
       }} />
+    </div>
     </div>
   );
 }

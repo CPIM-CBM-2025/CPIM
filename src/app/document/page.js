@@ -95,6 +95,10 @@ export default function DocumentsPage() {
   ];
 
   return (
+     <div className="page-background">
+              <div className="bg-logo">
+                <Image src="/images/logo.png" alt="logo" fill priority />
+              </div>
     <div style={{ backgroundColor: "#f8f9fa", minHeight: "100vh", overflowX: "hidden" }}>
 
       {/* 🔻 Header */}
@@ -268,6 +272,7 @@ export default function DocumentsPage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
  );
 }

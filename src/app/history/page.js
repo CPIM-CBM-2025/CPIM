@@ -47,6 +47,10 @@ export default function HistoryPage() {
   ];
 
   return (
+     <div className="page-background">
+              <div className="bg-logo">
+                <Image src="/images/logo.png" alt="logo" fill priority />
+              </div>
     <div style={{ backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
       {/* Header */}
       <div
@@ -183,6 +187,7 @@ export default function HistoryPage() {
           வருகிறது.
         </p>
       </div>
+    </div>
     </div>
   );
 }

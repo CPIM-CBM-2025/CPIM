@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
-// --- 🎨 Styles ---
+// 🎨 Styles (Moved styles outside the component for cleaner code)
 const socialIconStyle = {
   color: "white",
   border: "1px solid #FFD700",
@@ -15,16 +15,16 @@ const socialIconStyle = {
   justifyContent: "center",
   transition: "all 0.3s ease",
   textDecoration: "none",
-  flexShrink: 0,
+  flexShrink: 0, // Prevent shrinking
 };
 
 const contactLineStyle = {
   display: "flex",
-  alignItems: "flex-start",
+  alignItems: "flex-start", // Changed to flex-start for better alignment of multi-line address
   gap: "10px",
-  lineHeight: "1.6",
-  marginBottom: "15px",
-  textAlign: "start",
+  lineHeight: "1.6", // Adjusted for better readability
+  marginBottom: "15px", // Spacing between contact lines
+  textAlign: "start", // Ensure text alignment is correct within the paragraph
 };
 
 const headerStyle = {
@@ -37,7 +37,6 @@ const headerStyle = {
   fontSize: "clamp(1rem, 2.5vw, 1.1rem)",
 };
 
-// --- Component ---
 export default function Footer() {
   return (
     <footer
@@ -51,7 +50,7 @@ export default function Footer() {
       }}
     >
       <div className="container">
-        {/* Main Content Row: 3 equal columns (4+4+4) on medium screens and up */}
+        {/* Main Content Row: Responsive Layout with Vertical Alignment */}
         <div
           className="row text-center text-md-start"
           style={{
@@ -61,17 +60,15 @@ export default function Footer() {
           }}
         >
           {/* 🔻 About Section (4/12 width on MD+) */}
-          <div className="col-12 col-md-4 mb-5 d-flex flex-column align-items-center align-items-md-start">
+          <div className="col-12 col-md-4 mb-4 d-flex flex-column align-items-md-start">
             <h4 style={headerStyle}>இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்)</h4>
             <p
-              className="flex-grow-1" // Forces this paragraph to occupy remaining vertical space
+              className="flex-grow-1" // Bootstrap class to make this element grow and push content down
               style={{
                 lineHeight: "2.0",
                 textAlign: "justify",
                 fontSize: "clamp(0.85rem, 2vw, 1rem)",
-                marginBottom: 0,
-                // On mobile, ensure justify works without pushing text off-center
-                maxWidth: "600px", 
+                marginBottom: 0, // Reset margin
               }}
             >
               இந்திய கம்யூனிஸ்ட் கட்சி (மார்க்சிஸ்ட்) சமூகநீதிக்காக, சமத்துவத்திற்காக
@@ -81,12 +78,11 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* 🔻 Quick Links (4/12 width on MD+) */}
-          {/* Use col-6 on mobile to allow two link columns side-by-side */}
-          <div className="col-6 col-md-4 mb-5 d-flex flex-column align-items-center align-items-md-start">
+          {/* 🔻 Quick Links (3/12 width on MD+) */}
+          <div className="col-12 col-md-4 mb-4 d-flex flex-column align-items-md-start">
             <h5 style={headerStyle}>விரைவுச் சுட்டிகள்</h5>
             <ul
-              className="flex-grow-1" // Forces this list to occupy remaining vertical space
+              className="flex-grow-1" // Make the list grow to match column height
               style={{
                 listStyle: "none",
                 paddingLeft: 0,
@@ -100,9 +96,9 @@ export default function Footer() {
                 { name: "ஆவணங்கள்", link: "/document" },
                 { name: "கட்சி திட்டம்", link: "/plan" },
                 { name: "அமைப்பு சட்டம்", link: "/rule" },
+                { name: "தொடர்பு", link: "/contact" },
                 { name: "அன்றாட போராட்டம்", link: "/protest" },
                 { name: "வரலாறு", link: "/history" },
-                { name: "தொடர்பு", link: "/contact" },
               ].map((item, index) => (
                 <li key={index} style={{ marginBottom: "10px" }}>
                   <Link
@@ -122,14 +118,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 🔻 Contact Info and Socials (4/12 width on MD+) */}
-          {/* Use col-6 on mobile to sit next to Quick Links, col-12 below MD for better address display */}
-          <div className="col-6 col-md-4 mb-5 d-flex flex-column align-items-center align-items-md-start">
+          {/* 🔻 Contact Info and Socials (5/12 width on MD+) */}
+          <div className="col-12 col-md-4 mb-4 d-flex flex-column align-items-md-start">
             <h5 style={headerStyle}>தொடர்புக்கு</h5>
             <div
-              className="flex-grow-1 w-100" // Make contact info grow and use full width
+              className="flex-grow-1" // Make contact info grow
               style={{
                 fontSize: "clamp(0.85rem, 2vw, 1rem)",
+                width: "100%", // Ensures content respects column width
+                maxWidth: "350px", // Optional: Control max width on large screens
               }}
             >
               <p style={contactLineStyle}>
@@ -173,7 +170,7 @@ export default function Footer() {
 
         {/* Divider */}
         <hr
-          style={{ borderColor: "rgba(255,255,255,0.2)", marginTop: "10px" }}
+          style={{ borderColor: "rgba(255,255,255,0.2)", marginTop: "20px" }}
         />
 
         {/* Footer Bottom (Always Center Aligned) */}

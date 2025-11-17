@@ -76,7 +76,7 @@ export default function TamilHeader() {
       <nav
         className="d-none d-md-flex justify-content-center"
         style={{
-          gap: "40px",
+          gap: "30px",
           padding: "0.8rem 0",
           backgroundColor: "#f9f9f9",
         }}

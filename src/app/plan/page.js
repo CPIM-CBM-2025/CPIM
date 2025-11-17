@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function KatchiThittamPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -62,6 +63,10 @@ export default function KatchiThittamPage() {
   const contentMaxWidth = "1100px";
 
   return (
+    <div className="page-background">
+          <div className="bg-logo">
+            <Image src="/images/logo.png" alt="logo" fill priority />
+          </div>
     <div
       style={{
         width: "100%",
@@ -287,6 +292,7 @@ export default function KatchiThittamPage() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }

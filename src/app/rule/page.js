@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function TamilContentPage() {
   const sections = [
@@ -40,6 +41,10 @@ export default function TamilContentPage() {
   };
 
   return (
+     <div className="page-background">
+              <div className="bg-logo">
+                <Image src="/images/logo.png" alt="logo" fill priority />
+              </div>
     <section
       style={{
         width: "100%",
@@ -145,5 +150,6 @@ export default function TamilContentPage() {
         }}
       />
     </section>
+    </div>
   );
 }
